@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Vamos al cine?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fondo animado: cielo con nubes -->
+  <div class="sky">
+    <div class="cloud c1"><div class="cloud-body"></div><div class="cloud-bump b1"></div><div class="cloud-bump b2"></div></div>
+    <div class="cloud c2"><div class="cloud-body"></div><div class="cloud-bump b1"></div><div class="cloud-bump b2"></div></div>
+    <div class="cloud c3"><div class="cloud-body"></div><div class="cloud-bump b1"></div></div>
+    <div class="cloud c4"><div class="cloud-body"></div><div class="cloud-bump b1"></div><div class="cloud-bump b2"></div></div>
+    <div class="cloud c5"><div class="cloud-body"></div><div class="cloud-bump b1"></div></div>
+  </div>
+
+  <!-- ===================== PANTALLA 1: INICIAL ===================== -->
+  <section id="screen-initial" class="screen active">
+    <div class="screen-content">
+      <div class="film-card">
+        <div class="filmstrip top">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="card-body">
+          <div class="projector-icon">🎬</div>
+          <p class="initial-text">Tengo algo que preguntarte…</p>
+          <button id="btn-open" class="btn btn-main">¡Abrir!</button>
+        </div>
+        <div class="filmstrip bottom">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TELÓN ===================== -->
+  <div id="curtain-overlay" class="curtain-overlay hidden">
+    <div id="curtain-left"  class="curtain left"></div>
+    <div id="curtain-right" class="curtain right"></div>
+  </div>
+
+  <!-- ===================== PANTALLA 2: PREGUNTA ===================== -->
+  <section id="screen-question" class="screen hidden">
+    <div class="screen-content">
+      <div class="film-card question-card">
+        <div class="filmstrip top">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="card-body">
+          <p class="question-emoji">🍿🎥🌟</p>
+          <p class="question-text">¿Querés venir al cine conmigo?</p>
+          <div class="btn-group">
+            <button id="btn-yes" class="btn btn-yes">¡Sí!</button>
+            <button id="btn-no"  class="btn btn-no">No</button>
+          </div>
+        </div>
+        <div class="filmstrip bottom">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PANTALLA 3: SÍ ===================== -->
+  <section id="screen-yes" class="screen hidden">
+    <div class="screen-content">
+      <div class="response-wrap">
+        <div id="confetti-container" class="confetti-container"></div>
+        <div class="response-image-frame">
+          <img
+            src="assets/si.jpg"
+            alt="¡Sí!"
+            class="response-img"
+            onerror="this.parentElement.classList.add('img-missing'); this.remove();"
+          >
+        </div>
+        <div class="ticket-stub">
+          <div class="ticket-top">
+            <span class="ticket-label">🎟️ ENTRADA</span>
+            <span class="ticket-stars">★ ★ ★</span>
+          </div>
+          <div class="ticket-perf"></div>
+          <p class="ticket-msg">¡Ya tenemos las entradas!</p>
+          <p class="ticket-sub">Nos vemos ahí 🎉</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PANTALLA 4: NO ===================== -->
+  <section id="screen-no" class="screen hidden">
+    <div class="screen-content">
+      <div class="response-wrap">
+        <div class="response-image-frame">
+          <img
+            src="assets/no.jpg"
+            alt="No…"
+            class="response-img"
+            onerror="this.parentElement.classList.add('img-missing'); this.remove();"
+          >
+        </div>
+        <p class="no-text">Bueno… iré sola. 🥺</p>
+        <button id="btn-reconsider" class="btn btn-reconsider">Espera, lo pienso mejor</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
